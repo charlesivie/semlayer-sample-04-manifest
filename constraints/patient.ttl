@@ -1,0 +1,16 @@
+# constraints/patient.ttl — a NON-convention location, found only because the
+# manifest points at it.
+
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <https://example.org/health#> .
+
+ex:PatientShape a sh:NodeShape ;
+    sh:targetClass ex:Patient ;
+    sh:property [
+        sh:path ex:mrn ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "A Patient must have exactly one medical record number."
+    ] .

@@ -1,0 +1,21 @@
+# Scenario 04 — RDF manifest (semlayer.ttl) drives shape selection.
+# When a manifest is present it is authoritative: only the shapes it names via
+# sh:shapesGraph are used, and the conventions (root shapes.ttl, shapes/ dir) are
+# NOT applied. This repo includes a DECOY root shapes.ttl that must be IGNORED —
+# if it were wrongly applied, the good ABox would fail.
+#
+# Paths are repo-relative (in-repo). Absolute URLs would be treated as external
+# references (resolved client-side), not fetched by Semlayer.
+
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+
+<> a dcat:Catalog ;
+    dcat:dataset <#health> .
+
+<#health> a dcat:Dataset ;
+    dcterms:title "Health model (manifest-driven shapes)" ;
+    dcterms:identifier <https://example.org/health> ;
+    dcat:distribution [ dcat:downloadURL <health-model.ttl> ] ;   # the ontology file
+    sh:shapesGraph <constraints/patient.ttl> .                    # non-convention location

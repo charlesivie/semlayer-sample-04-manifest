@@ -1,0 +1,15 @@
+# DECOY — this root shapes.ttl must be IGNORED because semlayer.ttl is present.
+# It requires a property the good ABox does not set; if discovery wrongly applied
+# it, the good ABox would report a violation. Use this to confirm the manifest
+# overrides the conventions.
+
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix ex:   <https://example.org/health#> .
+
+ex:DecoyShape a sh:NodeShape ;
+    sh:targetClass ex:Patient ;
+    sh:property [
+        sh:path ex:thisShouldNeverBeChecked ;
+        sh:minCount 1 ;
+        sh:message "If you see this, the manifest was NOT honoured."
+    ] .
