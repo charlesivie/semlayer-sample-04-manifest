@@ -1,5 +1,5 @@
-# Scenario 04 — semlayer.ttl MANIFEST drives shape selection.
-# When semlayer.ttl is present it is authoritative: only the shape files it names
+# Scenario 04 — ontoshire.ttl MANIFEST drives shape selection.
+# When ontoshire.ttl is present it is authoritative: only the shape files it names
 # via sh:shapesGraph are used, and the conventions (root shapes.ttl, shapes/ dir)
 # are NOT applied. This repo includes a DECOY root shapes.ttl that must be
 # IGNORED — if it were wrongly applied, the good ABox would fail.

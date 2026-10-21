@@ -1,11 +1,11 @@
-# Scenario 04 — RDF manifest (semlayer.ttl) drives shape selection.
+# Scenario 04 — RDF manifest (ontoshire.ttl) drives shape selection.
 # When a manifest is present it is authoritative: only the shapes it names via
 # sh:shapesGraph are used, and the conventions (root shapes.ttl, shapes/ dir) are
 # NOT applied. This repo includes a DECOY root shapes.ttl that must be IGNORED —
 # if it were wrongly applied, the good ABox would fail.
 #
 # Paths are repo-relative (in-repo). Absolute URLs would be treated as external
-# references (resolved client-side), not fetched by Semlayer.
+# references (resolved client-side), not fetched by Ontoshire.
 
 @prefix dcat:    <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
